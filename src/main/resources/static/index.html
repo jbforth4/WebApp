@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>The Lich King Home</title>
+    <link href="mycss.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="myscripts.js"></script>
+    <style>
+        body {
+            background: url(Images/lich-king-large.jpg) no-repeat;
+            background-size: cover;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 150px;
+            background-color: #2370D8;
+        }
+
+        li a {
+            display: block;
+            color: #000;
+            padding: 8px 0 8px 16px;
+            text-decoration: none;
+        }
+
+        li a.active {
+            background-color: black;
+            color: yellow;
+        }
+
+        li a:hover:not(.active) {
+            background-color: #F04503;
+            color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+<header id="header"><strong>
+    <p3>Wrath of the Lich King!!</p3>
+</strong></header>
+<nav id="nav">
+    <ul>
+        <li><a class="active">Home</a></li>
+        <li><a href="links.html">Links</a></li>
+        <li><a href="strategies.html">Strategies</a></li>
+        <li><a href="signup.html">Signup</a></li>
+    </ul>
+</nav>
+<script>
+    $(document).ready(function () {
+        $("h1").hide().fadeIn(5000);
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("p4").hide().fadeIn(5000);
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("p5").hide().fadeIn(10000);
+    });
+</script>
+<script>
+    $(document).ready(function () {
+        $("p6").hide().fadeIn(20000);
+    });
+</script>
+<script type="text/javascript">
+    setInterval(function () {
+        $("p3").each(function () {
+            $(this).css('visibility', $(this).css('visibility') === 'hidden' ? '' : 'hidden')
+        });
+    }, 500);
+</script>
+<h1 id="h1" style="color:#C8E90F;text-align:center;font-family:midEvilFont;margin:auto;">The Lich King <br> is one of
+    the most formitable Bosses in
+    <br> World of Warcraft
+    <p4>!</p4>
+    <p5>!</p5>
+    <p6>!</p6>
+</h1>
+<iframe width="320" height="245" src="https://www.youtube.com/embed/BCr7y4SLhck?autoplay=0">
+</iframe>
+<footer id="footer"><strong>
+    <p3>Wrath of the Lich King!!</p3>
+</strong></footer>
+<p2 id="p2"><cite>Wrath of the Lich King</cite>©2017 BLIZZARD ENTERTAINMENT, INC.</p2>
+</body>
+</html>
