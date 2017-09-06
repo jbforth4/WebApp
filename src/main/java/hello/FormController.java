@@ -24,13 +24,18 @@ public class FormController {
 
         System.out.println(person.toString());
 
-        Connection conn = DriverManager.getConnection ("jdbc:h2:~/form", "sa","");
-        Statement st = conn.createStatement();
-
-        String sql = ("INSERT INTO REGISTRATION " + "VALUES " + person.getFirstName() + ";");
-        st.executeUpdate(sql);
-
-        conn.close();
+//        Connection conn = DriverManager.getConnection ("jdbc:h2:~/form", "sa","");
+//        Statement st = conn.createStatement();
+//
+//        String sql = ("INSERT INTO REGISTRATION ("
+//                        + " person.getId() + ", " +
+//                        person.getFirstName() + ", " +
+//                        person.getLastName() + ", " +
+//                        person.getEmail() + ")");
+//
+//        st.executeUpdate(sql);
+//
+//        conn.close();
         return new ResponseEntity<>(person, HttpStatus.OK);
     }
 
