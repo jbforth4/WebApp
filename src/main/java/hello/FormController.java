@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 @RestController
 public class FormController {
@@ -24,18 +21,26 @@ public class FormController {
 
         System.out.println(person.toString());
 
-//        Connection conn = DriverManager.getConnection ("jdbc:h2:~/form", "sa","");
-//        Statement st = conn.createStatement();
-//
-//        String sql = ("INSERT INTO REGISTRATION ("
-//                        + " person.getId() + ", " +
-//                        person.getFirstName() + ", " +
-//                        person.getLastName() + ", " +
-//                        person.getEmail() + ")");
-//
-//        st.executeUpdate(sql);
-//
-//        conn.close();
+        Connection conn = DriverManager.getConnection ("jdbc:h2:~/test", "sa","");
+
+        String query = "INSERT INTO REGISTRATION (firstname,lastname,email_addr)"
+                + " VALUES (?, ?, ?)";
+
+        try {
+            // set all the preparedstatement parameters
+            PreparedStatement st = conn.prepareStatement(query);
+            st.setString(1, person.getFirstName());
+            st.setString(2, person.getLastName());
+            st.setString(3, person.getEmail());
+
+            // execute the preparedstatement insert
+            st.executeUpdate();
+            st.close();
+        } catch (SQLException se) {
+            // log exception
+            throw se;
+        }
+        conn.close();
         return new ResponseEntity<>(person, HttpStatus.OK);
     }
 
