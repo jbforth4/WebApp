@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+//@Table(name="REGISTRATION")
 public class Person implements Serializable {
 
     @Id
@@ -31,16 +32,16 @@ public class Person implements Serializable {
                 '}';
 
     }
-
-    public Person(String firstName, String lastName, String email) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.email = email;
-    }
-
-    public Person(){
-
-    }
+//
+//    public Person(String firstName, String lastName, String email) {
+//        this.firstName = firstName;
+//        this.lastName = lastName;
+//        this.email = email;
+//    }
+//
+//    public Person(){
+//
+//    }
 
     public String getFirstName() {
         return firstName;
