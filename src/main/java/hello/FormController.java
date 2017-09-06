@@ -10,32 +10,29 @@ import org.springframework.web.bind.annotation.RestController;
 import hello.service.PersonService;
 
 import java.sql.SQLException;
+import java.util.List;
 
 @RestController
 public class FormController {
 
     @Autowired
     private PersonService personService;
-    //private DataBase dataBase;
-
-//    @Autowired
-//    public FormController(Person person){
-//        this.person = person;
-//    }
 
     @RequestMapping(value = "/signup.html/form", method = RequestMethod.POST)
     public ResponseEntity<Person> signUpForm(@ModelAttribute Person person) throws SQLException, ClassNotFoundException {
-        //this.person = person;
 
-        //System.out.println(person.toString());
-
-        //dataBase.addPerson(person);
         Person person1 = new Person();
         person1.setFirstName(person.getFirstName());
+        person1.setLastName(person.getLastName());
+        person1.setEmail(person.getEmail());
         personService.save(person1);
+
         return new ResponseEntity<>(person, HttpStatus.OK);
     }
 
-
+    @RequestMapping(value = "/print")
+    public List<Person> printPersons(){
+        return personService.findAllPersons();
+    }
 
 }
