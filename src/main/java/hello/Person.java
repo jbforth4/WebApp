@@ -1,10 +1,26 @@
 package hello;
 
-public class Person {
+import javax.persistence.*;
+import java.io.Serializable;
 
+@Entity
+public class Person implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "idGenerator")
+    @SequenceGenerator( name = "idGenerator", sequenceName = "demo_seq", allocationSize = 1 )
+    private Long id;
     private String firstName;
     private String lastName;
     private String email;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     @Override
     public String toString() {
@@ -13,6 +29,7 @@ public class Person {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 '}';
+
     }
 
     public Person(String firstName, String lastName, String email) {
