@@ -39,6 +39,7 @@ public class FormController {
         return personService.findAllPersons();
     }
 
+
     @RequestMapping(value = "/freePorn", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
     public ResponseEntity<byte[]> getImage1() throws IOException {
         ClassPathResource imgFile = new ClassPathResource("freePorn.jpg");
