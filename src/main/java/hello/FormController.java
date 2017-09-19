@@ -61,4 +61,15 @@ public class FormController {
                 .contentType(MediaType.IMAGE_GIF)
                 .body(bytes);
     }
+
+    @RequestMapping(value = "/MountainDew", method = RequestMethod.GET, produces = MediaType.APPLICATION_OCTET_STREAM_VALUE)
+    public ResponseEntity<byte[]> getSound() throws IOException {
+        ClassPathResource soundFile = new ClassPathResource("MountainDew.mp3");
+        byte[] bytes = StreamUtils.copyToByteArray(soundFile.getInputStream());
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.APPLICATION_OCTET_STREAM)
+                .body(bytes);
+    }
 }
