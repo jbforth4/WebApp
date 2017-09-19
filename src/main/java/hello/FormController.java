@@ -51,4 +51,14 @@ public class FormController {
                 .body(bytes);
     }
 
+    @RequestMapping(value = "/MilaKunis", method = RequestMethod.GET, produces = MediaType.IMAGE_GIF_VALUE)
+    public ResponseEntity<byte[]> getImage2() throws IOException {
+        ClassPathResource imgFile = new ClassPathResource("milakunis.gif");
+        byte[] bytes = StreamUtils.copyToByteArray(imgFile.getInputStream());
+
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_GIF)
+                .body(bytes);
+    }
 }
